@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fair Split — shared expense ledger</title>
+<link rel="stylesheet" href="c.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="inner">
+    <h1>Fair Split</h1>
+    <p>A running ledger for shared party costs. Log who was there and who paid each week — the balances and the settlement work themselves out.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section>
+    <h2 class="label">People</h2>
+    <div class="people-row" id="peopleRow"></div>
+  </section>
+
+  <section>
+    <h2 class="label">Weeks</h2>
+    <div id="weeksList"></div>
+    <button class="add-btn" id="addWeekBtn">+ Add a week</button>
+  </section>
+
+  <section>
+    <h2 class="label">Ledger</h2>
+    <table class="ledger">
+      <thead>
+        <tr><th>Person</th><th class="num">Should pay</th><th class="num">Actually paid</th><th class="num">Balance</th></tr>
+      </thead>
+      <tbody id="ledgerBody"></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2 class="label">Settlement</h2>
+    <div class="settle-list" id="settleList"></div>
+  </section>
+
+  <footer class="tip">
+    Balance = actually paid − should pay. Positive means the group owes them; negative means they still owe the group.
+    Your entries are saved on this device only.
+  </footer>
+
+</div>
+
+<script src="j.js"></script>
+</body>
+</html>
