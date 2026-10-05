@@ -1,0 +1,225 @@
+:root {
+    --navy: #1E2761;
+    --navy-light: #2C3878;
+    --ice: #CADCFC;
+    --ice-pale: #F3F6FD;
+    --gold: #C99A3C;
+    --gold-dark: #A87F2C;
+    --green: #1E8A5F;
+    --red: #B8433D;
+    --ink: #1B2340;
+    --muted: #5A6482;
+    --line: #E1E6F2;
+    --bg: #FFFFFF;
+    --card: #F7F9FD;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14172B;
+      --card: #1B1F3B;
+      --ink: #EDEFFA;
+      --muted: #A6ADD0;
+      --line: #2E3460;
+      --ice-pale: #1E2450;
+      --navy: #3C4CA0;
+    }
+    :root:not([data-theme="light"]) .settle-row .to { color: var(--ice); }
+  }
+  :root[data-theme="dark"] {
+    --bg: #14172B;
+    --card: #1B1F3B;
+    --ink: #EDEFFA;
+    --muted: #A6ADD0;
+    --line: #2E3460;
+    --ice-pale: #1E2450;
+    --navy: #3C4CA0;
+  }
+  :root[data-theme="dark"] .settle-row .to { color: var(--ice); }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); height: 100%; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100%;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Calibri, "Segoe UI", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px 80px; }
+
+  header.hero {
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: #fff;
+    padding: calc(env(safe-area-inset-top, 0px) + 40px) 20px 34px;
+    margin-bottom: 28px;
+  }
+  header.hero .inner { max-width: 880px; margin: 0 auto; }
+  header.hero h1 {
+    font-family: Cambria, "Times New Roman", serif;
+    font-weight: 700;
+    font-size: 34px;
+    margin: 0 0 8px;
+    letter-spacing: 0.2px;
+  }
+  header.hero p {
+    margin: 0;
+    color: var(--ice);
+    font-size: 15px;
+    max-width: 46ch;
+    line-height: 1.5;
+  }
+
+  section { margin-bottom: 34px; }
+  h2.label {
+    font-family: Cambria, serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    text-transform: uppercase;
+  }
+
+  /* People */
+  .people-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .person-chip {
+    display: flex; align-items: center; gap: 6px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 6px 8px 6px 12px;
+  }
+  .person-chip input {
+    border: none; background: transparent; color: var(--ink);
+    font-size: 14.5px; font-family: Calibri, sans-serif; width: 96px;
+    outline: none;
+  }
+  .person-chip .swatch {
+    width: 9px; height: 9px; border-radius: 50%; flex: none;
+  }
+  .person-chip button.rm {
+    border: none; background: none; color: var(--muted); cursor: pointer;
+    font-size: 15px; line-height: 1; padding: 2px 4px; border-radius: 5px;
+  }
+  .person-chip button.rm:hover { background: var(--line); color: var(--red); }
+  .add-btn {
+    border: 1.5px dashed var(--line);
+    background: none;
+    color: var(--muted);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-family: Calibri, sans-serif;
+    cursor: pointer;
+  }
+  .add-btn:hover { border-color: var(--gold); color: var(--gold-dark); }
+
+  /* Weeks */
+  .week-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px 18px 16px;
+    margin-bottom: 14px;
+  }
+  .week-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 12px; gap: 10px; flex-wrap: wrap;
+  }
+  .week-head .left { display: flex; align-items: baseline; gap: 10px; }
+  .week-head h3 {
+    font-family: Cambria, serif; font-size: 17px; margin: 0; color: var(--ink);
+    white-space: nowrap;
+  }
+  .cost-field { display: flex; align-items: center; gap: 6px; }
+  .cost-field span { color: var(--muted); font-size: 14px; }
+  .cost-field input {
+    width: 100px; padding: 5px 8px;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: var(--bg); color: var(--ink);
+    font-family: Cambria, serif; font-size: 15px;
+  }
+  .week-remove {
+    border: none; background: none; color: var(--muted); cursor: pointer;
+    font-size: 13px; font-family: Calibri, sans-serif;
+  }
+  .week-remove:hover { color: var(--red); }
+
+  .attend-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 8px 14px;
+  }
+  .attend-row {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 14px;
+  }
+  .attend-row label.name { flex: 1; color: var(--ink); user-select: none; }
+  .attend-row input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--navy); flex: none; }
+  .attend-row input[type="number"] {
+    width: 74px; padding: 4px 6px;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: var(--bg); color: var(--ink);
+    font-family: Calibri, sans-serif; font-size: 13.5px;
+    text-align: right;
+  }
+  .attend-row input[type="number"]:disabled { opacity: 0.35; }
+  .attend-row .paid-label { color: var(--muted); font-size: 12px; }
+
+  .balance-check {
+    margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line);
+    font-size: 12.5px; color: var(--muted); display: flex; justify-content: space-between;
+  }
+  .balance-check .ok { color: var(--green); }
+  .balance-check .off { color: var(--red); }
+
+  /* Ledger table */
+  table.ledger { width: 100%; border-collapse: collapse; }
+  table.ledger th {
+    text-align: left; font-family: Calibri, sans-serif; font-weight: 600;
+    font-size: 12.5px; color: var(--muted); padding: 0 10px 10px 0;
+    border-bottom: 1.5px solid var(--ink);
+  }
+  table.ledger td {
+    padding: 12px 10px 12px 0; border-bottom: 1px solid var(--line);
+    font-family: Cambria, serif; font-size: 15.5px; vertical-align: middle;
+  }
+  table.ledger td.name-cell { font-family: Calibri, sans-serif; font-weight: 600; font-size: 14.5px; }
+  table.ledger td.num { text-align: right; }
+  .bal-pos { color: var(--green); font-weight: 700; }
+  .bal-neg { color: var(--red); font-weight: 700; }
+  .bal-zero { color: var(--muted); }
+
+  /* Settlement */
+  .settle-list { display: flex; flex-direction: column; gap: 10px; }
+  .settle-row {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 9px; padding: 13px 16px;
+  }
+  .settle-row .flow { flex: 1; font-size: 15px; }
+  .settle-row .from { font-weight: 700; }
+  .settle-row .to { font-weight: 700; color: var(--navy); }
+  .settle-row .arrow { color: var(--muted); margin: 0 6px; }
+  .settle-row .amt {
+    font-family: Cambria, serif; font-weight: 700; font-size: 16px; color: var(--gold-dark);
+  }
+  .settle-empty {
+    color: var(--muted); font-size: 14.5px; font-style: italic;
+    padding: 16px; text-align: center; background: var(--card);
+    border-radius: 9px; border: 1px dashed var(--line);
+  }
+
+  footer.tip {
+    margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line);
+    color: var(--muted); font-size: 12.5px; line-height: 1.6;
+  }
+
+  @media (max-width: 520px) {
+    header.hero h1 { font-size: 27px; }
+    .week-head h3 { font-size: 15.5px; }
+    table.ledger { font-size: 13px; }
+  }
